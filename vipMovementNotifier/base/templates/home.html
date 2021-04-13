@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+    <div class="card mx-auto mt-5" style="width: 35rem;">
+        <img class="card-img-top mx-auto" style="width: 150px" src="{% static 'img/logo.png' %}" alt="logo">
+        <div class="card-body">
+            <h5 class="card-title">Find Location</h5>
+            <form action="" method="get">
+                {{ location.form.as_p }}
+                <button type="submit" id="button">Search</button>
+            </form>
+            <hr>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Road</th>
+                    <th scope="col">Time</th>
+                </tr>
+                <tbody>
+
+                {% for l in location.qs %}
+                    <tr>
+                    <td scope="col">{{ forloop.counter }}</td>
+                    <td scope="col">{{ l.location }}</td>
+                    <td scope="col">{{ l.road }}</td>
+                    <td scope="col">{{ l.time }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

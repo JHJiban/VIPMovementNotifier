@@ -1,0 +1,6 @@
+[type=submit]:not(:disabled), button:not(:disabled) {
+    border: none;
+    background: blue;
+    border-radius: 15px;
+    color: white;
+}
